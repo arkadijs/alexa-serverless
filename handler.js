@@ -1,17 +1,19 @@
-'use strict';
+'use strict'
 
-const alexia = require('alexia');
-const app = alexia.createApp();
+const alexia = require('alexia')
+const app = alexia.createApp('TAW16')
 
-app.intent('HelloIntent', 'Hello', (slots, attr) => {
-    return 'Hello from Madrid';
-});
+app.onStart(() => 'Welcome to Madrid, say Hello My name is, to get started, or say Help to get more instructions')
 
-module.exports.hello = (event, context, callback) => {
+app.customSlot('Name', ['Arkadi', 'Mark', 'Roman'])
+app.intent('WelcomeIntent', 'Hello my name is {name:Name}', (slots, attr) => `Hello ${slots.name ? slots.name : ''} from Madrid!`)
+
+app.intent('HelpIntent', 'Help', (slots, attr) => 'Say current sessions or next sessions for workshop schedule')
+
+// app.saveSpeechAssets()
+
+exports.skill = (event, context, callback) => {
   app.handle(event, data => {
-        callback(null, data);
-  });
-
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // callback(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
-};
+        callback(null, data)
+  })
+}

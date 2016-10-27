@@ -11,15 +11,15 @@
 #
 # Happy Coding!
 
-service: my-special-service
+service: taw16-alexa
 
-plugins:
-  - serverless-alexa-plugin
+# plugins:
+#  - serverless-alexa-plugin
 
 provider:
   name: aws
   runtime: nodejs4.3
-  stage: test
+  stage: dev
   region: eu-west-1
 
 # you can overwrite defaults here
@@ -48,9 +48,10 @@ provider:
 #  artifact: my-service-code.zip
 
 functions:
-  hello:
-    handler: handler.hello
-    events: 
+  skill:
+    handler: handler.skill
+    memorySize: 256
+    events:
       - alexaSkillsKit
 
 #    The following are a few example events you can configure
@@ -84,7 +85,7 @@ resources:
       Properties:
         FunctionName:
           "Fn::GetAtt":
-            - HelloLambdaFunction # Corresponds to function name above
+            - SkillLambdaFunction # Corresponds to function name above
             - Arn
         Action: lambda:InvokeFunction
         Principal: alexa-appkit.amazon.com
