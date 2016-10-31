@@ -1,5 +1,6 @@
 'use strict'
 
+const conf = require('./config')
 const alexia = require('alexia')
 const app = alexia.createApp('TAW16')
 
