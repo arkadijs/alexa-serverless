@@ -1,0 +1,16 @@
+{
+  "intents": [
+    {
+      "intent": "TopicIntent",
+      "slots": [
+        {
+          "name": "topic",
+          "type": "Topic"
+        }
+      ]
+    },
+    {
+      "intent": "HelpIntent"
+    }
+  ]
+}
