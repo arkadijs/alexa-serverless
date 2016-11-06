@@ -1,6 +1,9 @@
 {
   "intents": [
     {
+      "intent": "HelpIntent"
+    },
+    {
       "intent": "TopicIntent",
       "slots": [
         {
@@ -10,7 +13,7 @@
       ]
     },
     {
-      "intent": "HelpIntent"
+      "intent": "LambdaIntent"
     }
   ]
 }

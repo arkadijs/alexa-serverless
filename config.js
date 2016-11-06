@@ -1,3 +1,7 @@
+exports.lambda_facts = [
+    'Adroll - a large advertising company, pipes 55 Billion events a day through AWS Kinesis and Lambda'
+]
+
 exports.timetable = {
     'utc_offset': 1, // UTC+1
     'year': '2016',

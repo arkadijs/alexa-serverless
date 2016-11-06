@@ -1,2 +1,4 @@
-TopicIntent Next session in {topic}
 HelpIntent Help
+TopicIntent Next session in {topic}
+LambdaIntent For lambda facts
+LambdaIntent Some lambda facts

@@ -14,6 +14,8 @@ const uniq = (arr) => arr
     .reduce((acc, elem) => acc.length ? (acc[0] === elem ? acc : [elem].concat(acc)) : [elem], [])
 
 app.onStart(() => 'Welcome to Madrid, ask, Next session in topic, to get started, or say Help to get more instructions')
+app.intent('HelpIntent', 'Help', () => 'Say current sessions or next session in topic for workshop schedule. Workshop topics are ' +
+    topics.join(', '))
 
 const topics = uniq(tt.map(s => s.topic))
 app.customSlot('Topic', topics)
@@ -29,8 +31,8 @@ const find_topic_sessions = (topic) => {
 }
 app.intent('TopicIntent', 'Next session in {topic:Topic}', (slots, attr) => find_topic_sessions(slots.topic))
 
-app.intent('HelpIntent', 'Help', (slots, attr) => 'Say current sessions or next session in topic for workshop schedule. Workshop topics are ' +
-    topics.join(', '))
+const random_lambda_fact = () => conf.lambda_facts[0]
+app.intent('LambdaIntent', ['For lambda facts', 'Some lambda facts'], () => random_lambda_fact())
 
 // app.saveSpeechAssets()
 
