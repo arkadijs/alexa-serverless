@@ -16,7 +16,7 @@ functions:
     events:
       - alexaSkillsKit
       - http:
-          path: sessions/next
+          path: workshop
           method: post
      # - s3: ${env:BUCKET}
      # - schedule: rate(10 minutes)

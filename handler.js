@@ -41,7 +41,13 @@ app.intent('LambdaIntent', ['For lambda facts', 'Some lambda facts'], () => rand
 // app.saveSpeechAssets()
 
 exports.skill = (event, context, callback) => {
-  app.handle(event, data => {
-        callback(null, data)
-  })
+    if (typeof(event.body) == 'string') {
+        console.log(event.body)
+        callback(null, { 'echo': JSON.parse(event.body) })
+    } else {
+        console.log(util.inspect(event, { depth: null }))
+        app.handle(event, data => {
+            callback(null, data)
+        })
+    }
 }
