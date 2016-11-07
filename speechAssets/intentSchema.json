@@ -7,6 +7,10 @@
       "intent": "TopicIntent",
       "slots": [
         {
+          "name": "when",
+          "type": "When"
+        },
+        {
           "name": "topic",
           "type": "Topic"
         }
