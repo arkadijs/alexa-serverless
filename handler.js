@@ -13,7 +13,7 @@ const uniq = (arr) => arr
     .sort()
     .reduce((acc, elem) => acc.length ? (acc[0] === elem ? acc : [elem].concat(acc)) : [elem], [])
 
-app.onStart(() => 'Welcome to Madrid! Ask, Next session in topic, to get started, or say Help to get more instructions')
+app.onStart(() => 'Welcome to Madrid! Say help to learn more')
 app.intent('HelpIntent', 'Help', () => 'Say, current or next session in topic, for workshop schedule. Workshop topics are ' +
     topics.join(', '))
 
